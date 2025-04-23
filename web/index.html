@@ -12,11 +12,16 @@
     <nav id="navs" class="navbar bg-body-tertiary">
       <div class="container-md d-flex justify-content-between">
         <h1 class="my-1">Pi<span class="bg-danger mx-1 px-1 rounded">OSK</span></h1>
-        <div class="input-group w-75">
-          <input id="new-url" type="text" class="form-control form-control-lg" placeholder="...add URLs of webpages as screens">
-          <input id="sleep-time" type="number" min="1" value="10" class="form-control form-control-lg mx-2" placeholder="Sleep time (sec)">
-          <button id="add-url" type="button" class="btn btn-secondary">ADD</button>
-          <button id="execute" type="button" class="btn btn-danger">APPLY <span class="align-text-bottom">⏻</span></button>
+        <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center me-2">
+            <label for="sleep-time" class="me-1">Sleep:</label>
+            <input id="sleep-time" type="number" min="1" value="10" class="form-control form-control-lg" style="width: 80px;">
+          </div>
+          <div class="input-group w-75">
+            <input id="new-url" type="text" class="form-control form-control-lg" placeholder="...add URLs of webpages as screens">
+            <button id="add-url" type="button" class="btn btn-secondary">ADD</button>
+            <button id="execute" type="button" class="btn btn-danger">APPLY <span class="align-text-bottom">⏻</span></button>
+          </div>
         </div>
       </div>
     </nav>
@@ -31,6 +36,8 @@
       <kbd><a class="text-decoration-none" href="https://youtube.com/@BreakerSpace" target="_blank"><3</a></kbd>
       by
       <kbd><a class="text-decoration-none" href="https://debs.io" target="_blank">B)</a></kbd>
+      edited by
+      <kbd><a class="text-decoration-none" href="https://github.com/henriadler/piosk" target="_blank">:)</a></kbd>
     </footer>
 
     <template id="template-url">
