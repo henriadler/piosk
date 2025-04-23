@@ -16,6 +16,9 @@ let piosk = {
     $.each(data.urls, (index, item) => {
       piosk.appendUrl(item.url)
     })
+    if (data.sleep) {
+      $('#sleep-time').val(data.sleep)
+    }
   },
   showStatus (xhr) {
     let tmpErr = $('#template-err').contents().clone()
@@ -27,11 +30,13 @@ let piosk = {
 
 $(document).ready(() => {
   $.getJSON('/config')
-  .done(piosk.renderPage)
-  .fail(piosk.showStatus)
+    .done(piosk.renderPage)
+    .fail(piosk.showStatus)
 
   $('#add-url').on('click', piosk.addNewUrl)
-  $('#new-url').on('keyup', (e) => { if (e.key === 'Enter') piosk.addNewUrl() })
+  $('#new-url').on('keyup', (e) => {
+    if (e.key === 'Enter') piosk.addNewUrl()
+  })
 
   $('#urls').on('click', 'button.btn-close', (e) => {
     $(e.target).parent().remove()
@@ -43,6 +48,9 @@ $(document).ready(() => {
     $('li.list-group-item').each((index, item) => {
       config.urls.push({ url: $(item).find('a').attr('href') })
     })
+
+    const sleepTime = parseInt($('#sleep-time').val())
+    config.sleep = sleepTime > 0 ? sleepTime : 10
 
     $.ajax({
       url: '/config',
